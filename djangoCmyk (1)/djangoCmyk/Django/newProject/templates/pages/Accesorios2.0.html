@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Papeleria | CMYK {% endblock %}
+
+{% block content %} 
+
+
+    <!-- Pagina de productos -->
+    <!-- Orden de productos -->
+    <div class="col-4 mx-auto">
+        <select class="form-select" aria-label="Default select example"
+            style="background-color: rgba(252, 252, 238, 0.805);">
+            <option selected>Ordenar por defecto</option>
+            <option value="1">Ordenar de forma ascendente</option>
+            <option value="2">Ordenar de forma descendente</option>
+            <option value="3">Ordenar por mejor evaluados</option>
+        </select>
+    </div>
+    <br>
+    <hr>
+    <h3 class="text-center fw-bold" style="font-family: Georgia, 'Times New Roman', Times, serif;">Productos en stock de
+        Accesorios</h3>
+    <br>
+
+    <!-- Productos -->
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-2">
+            <div class="col">
+                <div class="card">
+                    <a href={% url 'mpa1' %}>
+                        <img src={% static 'img/Acc1.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Pin: Harry Potter</h5>
+                        <p class="card-text">Puedes mandar tu diseño para crear tu pin 100% a tu gusto.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$2.000</small></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <a href={% url 'mpa2' %}>
+                        <img src={% static 'img/Acc2.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Pin: Studio ghibli</h5>
+                        <p class="card-text">Puedes mandar tu diseño para crear tu pin 100% a tu gusto.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$2.000</small></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card    ">
+                    <a href={% url 'mpa3' %}>
+                        <img src={% static 'img/Acc3.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Pin: Bad Bunny</h5>
+                        <p class="card-text">Puedes mandar tu diseño para crear tu pin 100% a tu gusto.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$2.000</small></h4>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <a href={% url 'mpa4' %}>
+                        <img src={% static 'img/Acc4.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Chapita Plastica: Dewey</h5>
+                        <p class="card-text">Puedes personalizar tus chapitas acrílicas, personalizar su interior con
+                            fotos,
+                            mensajes,
+                            imágenes, etc. También, se pueden personalizar con vinilo decorativo.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$1.500</small></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card w-100 h-100">
+                    <a href={% url 'mpa5' %}>
+                        <img src={% static 'img/Acc5.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Chapita Plastica: Hearstopper</h5>
+                        <p class="card-text">Puedes personalizar tus chapitas acrílicas, personalizar su interior con
+                            fotos, mensajes,
+                            imágenes, etc. También, se pueden personalizar con vinilo decorativo.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$1.500</small></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card w-100 h-100">
+                    <a href={% url 'mpa6' %}>
+                        <img src={% static 'img/Acc6.jpg' %} class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Chapita Plastica: Tanjiro</h5>
+                        <p class="card-text">Puedes personalizar tus chapitas acrílicas, personalizar su interior con
+                            fotos, mensajes,
+                            imágenes, etc. También, se pueden personalizar con vinilo decorativo.</p>
+                        <h4 class="card-text"><small class="text-body-secondary">$1.500</small></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br>
+
+    {% endblock %}

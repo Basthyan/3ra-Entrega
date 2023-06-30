@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Papeleria | CMYK {% endblock %}
+
+{% block content %} <br>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-12">
+        <div class="product-card bg-light shadow">
+          <div class="row">
+            <div class="col-md-6">
+              <img class="img-fluid" src={% static 'img/Pap4.jpg' %} alt="Imagen del producto"
+                style="width: 100%; max-width: 500px;">
+            </div>
+            <div class="col-md-6">
+              <div class="product-details">
+                <p><span class="product-status">Nuevo | +20 vendidos</span></p>
+                <h2 class="product-name">Set de stickers: Anime</h2>
+                <div class="product-price">
+                  <h2 class="fw-bold">$1.500</h2>
+                </div>
+                <div class="product-stock">Stock disponible</div>
+                <div class="rating mt-2 mb-2">
+                  <span class="stars">
+                    <i class="fas fa-star" data-rating="1"></i>
+                    <i class="fas fa-star" data-rating="2"></i>
+                    <i class="fas fa-star" data-rating="3"></i>
+                    <i class="fas fa-star" data-rating="4"></i>
+                    <i class="fas fa-star" data-rating="5"></i>
+                  </span>
+                  <span class="rating-count">(3 reseñas)</span>
+                </div>
+                <div class="payment-methods">
+                  <a href="#" class="payment-link">Ver los métodos de pago</a>
+                </div>
+                <div class="form-group mt-2">
+                  <div class="input-group input-group-sm text-center">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-danger rounded-0 rounded-start-2" type="button"
+                        id="decrement-btn">-</button>
+                    </div>
+                    <input type="text" class="form-control-color border-danger text-center text-dark"
+                      style="color: rgb(230, 60, 60);" id="quantity" value="1">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-danger rounded-0 rounded-end-2" type="button"
+                        id="increment-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-danger fw-bold buy-button input-group text-center mt-3">Comprar
+                  ahora</button>
+                <button type="button" class="btn fw-bold text-danger add-button input-group text-center mt-1 btn-hover">
+                  Agregar al carrito</button>
+                <style>
+                  .btn-hover {
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+                    background-color: rgb(255, 217, 217);
+                  }
+
+                  .btn-hover:hover {
+                    background-color: rgb(255, 196, 196);
+                  }
+                </style>
+
+                <div class="social-media mt-3 text-center">
+                  <a href="#" class=" social-link"><i class="fab fa-facebook"></i></a>
+                  <a href="#" class="social-link link-info"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-link link-danger"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h3 class="fw-bold text-center">Descripción</h3>
+          <p class="text-center m-4 mb-3 mt-2">Bolsas de stickers con entrega inmediata, más de +50 temáticas distintas,
+            puedes mandar tus 10 fotos y así crear tu bolsa de stickers a tu gusto!. Ademas, inlcuye despacho a
+            domicilio disponible con un pequeño recargo dependiendo de la comuna. ¡No te quedes sin el tuyo!</p>
+          <h5 class="fw-semibold">Características del producto:</h5>
+          <p class="m-2"> <span class="fw-bold">- Diseño: </span> Personalizado.</p>
+          <p class="m-2"> <span class="fw-bold">- Género: </span> Sin género. </p>
+          <p class="m-2"> <span class="fw-bold">- Tipo de producto: </span>Set stickers anime.</p>
+          <p class="m-2"> <span class="fw-bold">- Detalles extra: </span>Bolsas de stickers con entrega inmediata, más
+            de +50 temáticas distintas.</p><br>
+        </div><br>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}

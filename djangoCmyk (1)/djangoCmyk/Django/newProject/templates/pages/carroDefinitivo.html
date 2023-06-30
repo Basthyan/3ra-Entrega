@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %} Velas | CMYK {% endblock %}
+
+{% block content %} 
+{% load static %}
+
+    <!-- Contenido principal -->
+    <div class="container-fluid">
+        <div class="container align-items-center justify-content-center">
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <div class="card shadow">
+                        <div class="card-header bg-body-secondary text-black p-3 border-bottom-0">
+                            <span class="d-flex align-items-center">
+                                <i class="fas fa-id-card text-black fw-bold p-1"></i>
+                                <h5 class="fw-bold mb-0">Información de comprador</h5>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="container">
+                                <form class="ms-3 me-3" id="formulario" onsubmit="return validarFormulario()">
+                                    <div class="mb-3 rounded-1">
+                                        <label for="email" class="form-label mb-3">Dirección de E-mail <span
+                                                class="text-danger">*</span></label>
+                                        <div class="input-group rounded-1">
+                                            <input type="email" class="form-control" id="email" required>
+                                            <span class="input-group-text link-secondary border" id="popover-icon"
+                                                data-bs-toggle="popover"
+                                                data-bs-content="Aquí mandaremos la confirmación de tu pedido."
+                                                data-bs-placement="top">
+                                                <i class="fas fa-question-circle"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-4 mb-5">
+                                    <h5 class="fw-bold">Información de despacho</h5>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <label for="nombre" class="form-label mt-0">Nombre <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="nombre" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <label for="apellidos" class="form-label mt-0">Apellidos <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="apellidos" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <label for="telefono" class="form-label mt-0">Teléfono
+                                                <span style="font-size: small; color: rgb(179, 178, 178);">Ej: +569
+                                                    1234 5678</span>
+                                                <span class="text-danger"> *</span>
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="tel" class="form-control" id="telefono" required>
+                                                <span class="input-group-text link-secondary border" id="popover-icon2"
+                                                    data-bs-toggle="popover"
+                                                    data-bs-content="Para preguntas con respecto al envío."
+                                                    data-bs-placement="top">
+                                                    <i class="fas fa-question-circle"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <label for="rut" class="form-label">Rut
+                                                <span style="font-size: small; color: rgb(179, 178, 178);">Sin
+                                                    puntos ni guion</span>
+                                                <span class="text-danger"> *</span>
+                                            </label>
+                                            <input type="tel" class="form-control" id="rut" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 mt-2">
+                                        <label for="direccion" class="form-label">Dirección de envío
+                                            <span style="font-size: small; color: rgb(179, 178, 178);">Ej: Av.
+                                                principal / Calle</span>
+                                            <span class="text-danger"> *</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="direccion" required>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2 mt-2">
+                                            <span style="font-size: small; color: rgb(179, 178, 178);">Número Ej:
+                                                1234</span>
+                                            <span class="text-danger"> *</span>
+                                            <input type="text" class="form-control" id="nombre" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <span style="font-size: small; color: rgb(179, 178, 178);">Depto / Casa
+                                                Ej: Dpto 14</span>
+                                            <input type="text" class="form-control" id="nombre" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            Región<span class="text-danger"> *</span>
+                                            <select class="form-select mt-1" id="regionSelect"
+                                                aria-label="Default select example">
+                                                <option selected>Por favor, seleccione su Región</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3 mt-2">
+                                            <span class="text-danger"></span>
+                                            <label for="comuna" class="form-label">
+                                                <span style="font-size: small; color: rgb(179, 178, 178);">Comuna</span>
+                                                <span class="text-danger"> *</span>
+                                            </label>
+                                            <select class="form-select" id="comunaSelect" required>
+                                                <option selected disabled>Seleccione una región primero</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 mt-2">
+                                        <label for="fecha-entrega" class="form-label">Fecha de entrega:</label>
+                                        <input type="date" class="form-control" id="fecha-entrega" required>
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btn-danger btn-block mt-4 mb-4 input-group rounded-5">Enviar
+                                        formulario</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resumen del pedido -->
+                <div class="col-sm-6">
+                    <div class="card border-1 shadow">
+                        <div class="card-header bg-body-secondary text-black p-3 border-bottom-0">
+                            <span class="d-flex align-items-center">
+                                <i class="fa fa-file-alt text-black p-1"></i>
+                                <h5 class="fw-bold mb-0">Resumen del pedido</h5>
+                            </span>
+                        </div>
+                        <div class="card-body ms-3 me-3 mt-4">
+                            <h5>3 Artículos en el carro</h5>
+                            <hr>
+                            <div>
+                                <img class="w-25" src="img/Acc4.jpg" alt="">
+                            </div>
+                            <hr class="mt-4">
+                            <div>
+                                <img class="w-25" src="img/Acc4.jpg" alt="">
+                            </div>
+                            <hr class="mt-4">
+                            <div>
+                                <p>Subtotal del carro</p>
+                                <p>Envío</p>
+                                <p class="mt-2">Total del pedido</p>
+                            </div>
+                            <hr>
+                            <div class="mb-3 form-check d-flex justify-content-center gap-3">
+                                <input type="checkbox" class="form-check-input rounded-5" id="aceptar">
+                                <label class="form-check-label" for="aceptar"><span
+                                        style="font-size: medium; color: rgb(145, 144, 144);"> Acepto los
+                                        términos y
+                                        condiciones</span> <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-danger rounded-5 input-group"><span class="fw-bold">Comprar
+                                        ahora</span></button>
+                            </div>
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- Metodo de pago -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <form id="payment-form">
+                    <div class="accordion shadow" id="metodoPagoAccordion">
+                        <div class="accordion-item bg-light-subtle">
+                            <h2 class="accordion-header" id="metodoPagoHeader">
+                                <button class="accordion-button bg-body-secondary" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseMetodoPago" aria-expanded="true"
+                                    aria-controls="collapseMetodoPago">
+                                    <span class="d-flex align-items-center">
+                                        <i class="fas fa-credit-card text-black fw-bold p-1"></i>
+                                        <h5 class="fw-bold text-black ms-2 mb-0">Métodos de pago</h5>
+                                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapseMetodoPago" class="accordion-collapse collapse show"
+                                aria-labelledby="metodoPagoHeader" data-bs-parent="#metodoPagoAccordion">
+                                <div class="accordion-body">
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col">
+                                                <p>Selecciona una de las siguientes formas de pago:</p>
+                                                <div
+                                                    class="form-check border border-secondary-subtle mt-2 mb-2 d-flex align-items-center justify-content-center p-3">
+                                                    <input class="form-check-input mt-0 me-2" type="radio"
+                                                        name="metodoPagoRadio" id="webpayPlusRadio" checked>
+                                                    <label class="form-check-label mt-0 mb-0"
+                                                        for="webpayPlusRadio">Webpay Plus</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- Descuento -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion shadow" id="informacion-accordion">
+                    <div class="accordion-item bg-light-subtle">
+                        <h2 class="accordion-header" id="headingInformacion">
+                            <button class="accordion-button bg-body-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseInformacion" aria-expanded="true"
+                                aria-controls="collapseInformacion">
+                                <span class="d-flex align-items-center">
+                                    <i class="fas fa-tags text-black fw-bold p-1"></i>
+                                    <h5 class="fw-bold text-black ms-2 mb-0">¿Tienes un código de descuento?
+                                    </h5>
+                                </span>
+                            </button>
+                        </h2>
+                        <div id="collapseInformacion" class="accordion-collapse collapse show"
+                            aria-labelledby="headingInformacion" data-bs-parent="#informacion-accordion">
+                            <div class="accordion-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group mb-3 gap-2 mt-3">
+                                                <input type="text" class="form-control rounded-start-1" id="nombre"
+                                                    required>
+                                                <button type="button" class="btn btn-danger rounded-end-5">Aplicar
+                                                    descuento</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/ApiRest.js'%}"></script>
+    {% endblock %}

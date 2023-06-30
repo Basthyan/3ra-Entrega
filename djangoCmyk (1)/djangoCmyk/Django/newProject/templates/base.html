@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %} {% load static %} {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'img/cmykLogo.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/StyleProducto.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body style="background-color: rgba(252, 252, 238, 0.805);">
+    <!-- Barra de Navegacion -->
+    <nav class="navbar" style="background-color: rgb(253, 193, 193);">
+        <div class="container">
+            <a class="navbar-brand" href="Home2.0.html"></a>
+            <img src="{% static 'img/cmykLogo.png' %}" alt="Cmyk.cl" width="50" height="50" />
+            <a class="nav-link active link-dark" style="transition: all 0.2s;" aria-current="page"
+                href={% url 'index' %}>Inicio</a>
+            <a class="nav-link active link-dark" style="transition: all 0.2s;" aria-current="page"
+                href="#sec1">Suscripcion</a>
+            <a class="nav-link active link-dark" style="transition: all 0.2s;" aria-current="page"
+                href="#sec2">Contactos</a>
+
+
+            <div class="d-flex gap-3">
+                <form class="flex-grow-1">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar"
+                            style="background-color: rgb(255, 239, 239);">
+                        <button class="btn" style="background-color: rgb(255, 239, 239);" type="submit"><i
+                                class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <button class="navbar-toggler border-dark" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header text-center bg-light">
+                    <h5 class="offcanvas-title fw-bold ms-3 mb-0" id="offcanvasNavbarLabel">¡Bienvenido!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body ms-3">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href={% url 'papeleria' %}>Papeleria</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item fw-bold">
+                            <a class="nav-link" href={% url 'accesorios' %}>Accesorios</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'velas' %}>Velas</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href={% url 'estampados' %}>Estampados</a>
+                        </li><br>
+                        <div class="btn carrito">
+                            <a class="nav-link" href={% url 'carrito' %}>
+                                <button type="button" class="btn btn-danger input-group fw-bold">Ver Carrito</button>
+                            </a>
+                        </div>
+                        <div class="btn login">
+                            <a class="nav-link" href={% url 'login' %}>
+                                <button type="button" class="btn btn-outline-danger input-group fw-bold">Inicio de
+                                    sesion</button>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <ul class="list-unstyled d-flex justify-content-center">
+                        <li class="me-3"><a href="#" class="social-icon"><i
+                                    class="fab fa-facebook-f text-primary"></i></a></li>
+                        <li class="me-3"><a href="#" class="social-icon"><i class="fab fa-twitter text-info"></i></a>
+                        </li>
+                        <li class="me-3"><a href="#" class="social-icon"><i
+                                    class="fab fa-instagram text-danger"></i></a></li>
+                        <li class="me-3"><a href="#" class="social-icon"><i
+                                    class="fab fa-whatsapp text-success"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+
+    {% block content %} 
+
+    {% endblock%} 
+
+    <!-- Suscripcion -->
+    <section id="sec1">
+        <div class="p-3 justify-content-center mt-5" style="height: 13rem; background-color: rgb(253, 193, 193);">
+            <div class="justify-content-center text-lg-center">
+                <h5 class="mt-3 fw-bold">Suscríbete a nuestra página</h5>
+                <p>¡Recibirás novedades y ofertas limitadas que tenemos en CMYK para ti!</p>
+            </div>
+            <form>
+                <div class="w-auto d-flex justify-content-center gap-1">
+                    <input for="correo" class="form-control bg-light p-2 rounded-4" style="width: 30rem;" type="text"
+                        id="correoE" placeholder="  Ingresa tu dirección de correo electrónico" />
+                    <button type="button" class="btn btn-danger d-flex rounded-4" id="btnSuscripcion"
+                        value="Validar correo">Registrarme</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de pagina -->
+    <footer class="text-center text-light pb-5 pt-4"
+        style="background-color: #afcec6; border-top: 1px solid rgb(189, 189, 189);" id="sec2">
+        <div class="container pt-0">
+            <div class="row justify-content-center mt-3 pt d-flex">
+                <div class="col-12 col-md-auto">
+                    <img class="mb-0" src="{% static 'img/cmykLogo.png' %}" alt="" width="150px">
+                    <div class="row justify-content-center mt-1">
+                        <div class="col-12">
+                            <ul class="list-unstyled d-flex justify-content-center">
+                                <li class="me-3"><a href="#" class="social-icon"><i
+                                            class="fab fa-facebook-f text-secondary link-dark"></i></a></li>
+                                <li class="me-3"><a href="#" class="social-icon"><i
+                                            class="fab fa-twitter text-secondary link-dark"></i></a></li>
+                                <li class="me-3"><a href="#" class="social-icon"><i
+                                            class="fab fa-instagram text-secondary link-dark"></i></a></li>
+                                <li class="me-3"><a href="#" class="social-icon"><i
+                                            class="fab fa-linkedin text-secondary link-dark"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md text-start">
+                    <h5 class="text-black-50">Contáctanos</h5>
+                    <ul class="list-unstyled text-small align-items-center ulp ul-horizontal">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Mesa de ayuda</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Tel: +569 1234 5678</a>
+                        </li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">correo:
+                                cmykcl@contacto.cl</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md text-start">
+                    <h5 class="text-black-50">Ayuda</h5>
+                    <ul class="list-unstyled text-small ulp ul-horizontal">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Servicio al cliente</a>
+                        </li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Preguntas
+                                frecuentes</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cambios y
+                                devoluciones</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Términos y
+                                condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md text-start">
+                    <h5 class="text-black-50">Sobre nosotros</h5>
+                    <ul class="list-unstyled text-small ulp ul-horizontal">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Quienes somos</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">contacto</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Nuestras Tiendas</a>
+                        </li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Trabaja con
+                                nosotros</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Ventas al por mayor</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-auto">
+                    <img class="mb-2" src="{% static 'img/Webpay.webp' %}" alt="" width="200px">
+                </div>
+            </div>
+        </div>
+        <hr class="text-black-50 border-1">
+        <div class="text-center text-black-50 pt-0" style="background-color: #afcec6;">
+            © 2023 CMYK. Todos los derechos reservados.
+        </div>
+    </footer>
+    <script src="{% static 'js/Val_Fun.js'%}"></script>
+</body>
+</html>
